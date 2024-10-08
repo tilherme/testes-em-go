@@ -3,12 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	x := soma(3, 3, 3)
-	y := multiplica(3, 3, 3)
-	fmt.Println(x, y)
+	sum := sum(3, 3, 3)
+	multiplication := multiplication(3, 3, 3)
+	division := division(4, 2)
+	subtraction := subtraction(7, 1)
+	fmt.Println(subtraction, division, sum, multiplication)
 }
 
-func soma(i ...int) int {
+func sum(i ...int) int {
 	total := 0
 	for _, v := range i {
 		total += v
@@ -16,10 +18,39 @@ func soma(i ...int) int {
 	return total
 }
 
-func multiplica(i ...int) int {
+func multiplication(i ...int) int {
 	total := 1
 	for _, v := range i {
 		total *= v
 	}
 	return total
 }
+func subtraction(i ...int) int {
+	if len(i) == 0 {
+		return 0
+	}
+	total := i[0]
+	for _, v := range i[1:] {
+		total -= v
+	}
+	return total
+}
+func division(i ...int) int {
+	if len(i) == 0 {
+		return 0
+	}
+	total := i[0]
+	for _, v := range i[1:] {
+		total /= v
+	}
+	return total
+}
+
+// func div(i ...int) int {
+// 	total := 0
+// 	for _, v := range i {
+// 		total /= v
+// 		fmt.Println(total)
+// 	}
+// 	return total
+// }
